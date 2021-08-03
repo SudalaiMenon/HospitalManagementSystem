@@ -3,23 +3,23 @@ package entity;
 import java.util.Date;
 
 public class Appoinment {
-    private long appoinmentID;
+    private Long appoinmentID;
     private Doctor doctor;
     private Patient patient;
     private Date dateOfVisit;
     private String purposeOfVisit;
-    private String isFirstVisit;
-    private String  bp;
-    private String temperature;
+    private boolean isFirstVisit;
+    private double  bp;
+    private double temperature;
     private String doctorToVisit;
 
 
-    public long getPatientID() {
+    public long getAppoinmentID() {
         return appoinmentID;
     }
 
-    public void setPatientID(long patientID) {
-        this.appoinmentID = patientID;
+    public void setAppoinmentID(long appoinmentID) {
+        this.appoinmentID = appoinmentID;
     }
 
     public Date getDateOfVisit() {
@@ -38,27 +38,27 @@ public class Appoinment {
         this.purposeOfVisit = purposeOfVisit;
     }
 
-    public String getIsFirstVisit() {
+    public boolean getIsFirstVisit() {
         return isFirstVisit;
     }
 
-    public void setIsFirstVisit(String isFirstVisit) {
+    public void setIsFirstVisit(boolean isFirstVisit) {
         this.isFirstVisit = isFirstVisit;
     }
 
-    public String getBp() {
+    public double getBp() {
         return bp;
     }
 
-    public void setBp(String bp) {
+    public void setBp(double bp) {
         this.bp = bp;
     }
 
-    public String getTemperature() {
+    public double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(String temperature) {
+    public void setTemperature(double temperature) {
         this.temperature = temperature;
     }
 
