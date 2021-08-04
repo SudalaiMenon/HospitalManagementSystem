@@ -147,7 +147,7 @@ public class ObjectMainMethod {
         appoinmentThree.setAppoinmentID(3l);
         appoinmentThree.setDoctor(doctorMap.get(0003l));
         appoinmentThree.setPatient(patientMap.get(203l));
-        appoinmentThree.setDateOfVisit(new Date(2021, 02, 02));
+        appoinmentThree.setDateOfVisit(new Date(2021, 02, 12));
         appoinmentThree.setPurposeOfVisit("Starting stage of cancer");
         appoinmentThree.setBp(101.00);
         appoinmentThree.setTemperature(96.30);
@@ -305,6 +305,17 @@ public class ObjectMainMethod {
         visitDetails.put(boneCheckup.getVisitId(), boneCheckup);
         visitDetails.put(lungsCheckup.getVisitId(), lungsCheckup);
         visitDetails.put(bodyPainCheckup.getVisitId(), bodyPainCheckup);
+
+
+    }
+    public static void main(String[] args) {
+        populateVisitInformation();
+        AppoinmentBO appoinmentBO = new AppoinmentBO();
+
+        Appoinment newAppoinment = appoinmentBO.createAppoinment(201l, patientMap,3l,doctorMap,
+                2l,appoinmentMap, Calendar.getInstance().getTime(),"Regular checkup");
+        appoinmentMap.put(newAppoinment.getAppoinmentID(), newAppoinment);
+
     }
 }
 
