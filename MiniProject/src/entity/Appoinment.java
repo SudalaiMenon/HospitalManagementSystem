@@ -14,11 +14,11 @@ public class Appoinment {
     private String doctorToVisit;
 
 
-    public long getAppoinmentID() {
+    public Long getAppoinmentID() {
         return appoinmentID;
     }
 
-    public void setAppoinmentID(long appoinmentID) {
+    public void setAppoinmentID(Long appoinmentID) {
         this.appoinmentID = appoinmentID;
     }
 
@@ -85,4 +85,21 @@ public class Appoinment {
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
+
+    @Override
+    public String toString() {
+        return "Appoinment{" +
+                "appoinmentID=" + appoinmentID +
+                ", doctor=" + doctor +
+                ", patient=" + patient +
+                ", dateOfVisit=" + dateOfVisit +
+                ", purposeOfVisit='" + purposeOfVisit + '\'' +
+                ", isFirstVisit=" + isFirstVisit +
+                ", bp=" + bp +
+                ", temperature=" + temperature +
+                ", doctorToVisit='" + doctorToVisit + '\'' +
+                '}';
+    }
+
+
 }

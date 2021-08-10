@@ -1,5 +1,7 @@
 package entity;
 
+import bussinessobject.VisitingInformationBO;
+
 import java.util.*;
 
 public class ObjectMainMethod {
@@ -166,7 +168,7 @@ public class ObjectMainMethod {
         appoinmentFive = new Appoinment();
         appoinmentFive.setAppoinmentID(1l);
         appoinmentFive.setDoctor(doctorMap.get(0001l));
-        appoinmentFive.setPatient(patientMap.get(201l));
+        appoinmentFive.setPatient(patientMap.get(205l));
         appoinmentFive.setDateOfVisit(new Date(2021, 06, 17));
         appoinmentFive.setPurposeOfVisit("Again Chest pain");
         appoinmentFive.setBp(100.5);
@@ -174,34 +176,34 @@ public class ObjectMainMethod {
         appoinmentFive.setIsFirstVisit(true);
 
         appoinmentSix = new Appoinment();
-        appoinmentSix .setAppoinmentID(6l);
-        appoinmentSix .setDoctor(doctorMap.get(0001l));
-        appoinmentSix .setPatient(patientMap.get(201l));
-        appoinmentSix .setDateOfVisit(new Date(2021, 06, 16));
-        appoinmentSix .setPurposeOfVisit("Again Chest pain");
-        appoinmentSix .setBp(100.5);
-        appoinmentSix .setTemperature(90.5);
-        appoinmentSix .setIsFirstVisit(true);
+        appoinmentSix.setAppoinmentID(2l);
+        appoinmentSix.setDoctor(doctorMap.get(0001l));
+        appoinmentSix.setPatient(patientMap.get(206l));
+        appoinmentSix.setDateOfVisit(new Date(2021, 06, 16));
+        appoinmentSix.setPurposeOfVisit("Again Chest pain");
+        appoinmentSix.setBp(100.5);
+        appoinmentSix.setTemperature(90.5);
+        appoinmentSix.setIsFirstVisit(true);
 
         appoinmentSeven = new Appoinment();
-        appoinmentSeven .setAppoinmentID(7l);
-        appoinmentSeven .setDoctor(doctorMap.get(0001l));
-        appoinmentSeven .setPatient(patientMap.get(201l));
-        appoinmentSeven .setDateOfVisit(new Date(2021, 07, 26));
-        appoinmentSeven .setPurposeOfVisit("Again Chest pain");
-        appoinmentSeven .setBp(98.00);
-        appoinmentSeven .setTemperature(90.30);
-        appoinmentSeven .setIsFirstVisit(true);
+        appoinmentSeven.setAppoinmentID(7l);
+        appoinmentSeven.setDoctor(doctorMap.get(0001l));
+        appoinmentSeven.setPatient(patientMap.get(207l));
+        appoinmentSeven.setDateOfVisit(new Date(2021, 07, 26));
+        appoinmentSeven.setPurposeOfVisit("Again Chest pain");
+        appoinmentSeven.setBp(98.00);
+        appoinmentSeven.setTemperature(90.30);
+        appoinmentSeven.setIsFirstVisit(true);
 
-        appoinmentFive = new Appoinment();
-        appoinmentFive.setAppoinmentID(1l);
-        appoinmentFive.setDoctor(doctorMap.get(0001l));
-        appoinmentFive.setPatient(patientMap.get(201l));
-        appoinmentFive.setDateOfVisit(new Date(2021, 8, 27));
-        appoinmentFive.setPurposeOfVisit("Again Chest pain");
-        appoinmentFive.setBp(120.5);
-        appoinmentFive.setTemperature(102.5);
-        appoinmentFive.setIsFirstVisit(false);
+        appoinmentEight = new Appoinment();
+        appoinmentEight.setAppoinmentID(2l);
+        appoinmentEight.setDoctor(doctorMap.get(0001l));
+        appoinmentEight.setPatient(patientMap.get(208l));
+        appoinmentEight.setDateOfVisit(new Date(2021, 8, 27));
+        appoinmentEight.setPurposeOfVisit("Again Chest pain");
+        appoinmentEight.setBp(120.5);
+        appoinmentEight.setTemperature(102.5);
+        appoinmentEight.setIsFirstVisit(true);
 
 
         appoinmentMap = new HashMap<>();
@@ -209,6 +211,10 @@ public class ObjectMainMethod {
         appoinmentMap.put(appoinmentTwo.getAppoinmentID(), appoinmentTwo);
         appoinmentMap.put(appoinmentThree.getAppoinmentID(), appoinmentThree);
         appoinmentMap.put(appoinmentFour.getAppoinmentID(), appoinmentFour);
+        appoinmentMap.put(appoinmentFive.getAppoinmentID(), appoinmentFive);
+        appoinmentMap.put(appoinmentSix.getAppoinmentID(), appoinmentSix);
+        appoinmentMap.put(appoinmentSeven.getAppoinmentID(), appoinmentSeven);
+        appoinmentMap.put(appoinmentEight.getAppoinmentID(), appoinmentEight);
 
         medicineForCardiology = new Medicine();
         medicineForCardiology.setMedicineId(50l);
@@ -308,16 +314,27 @@ public class ObjectMainMethod {
 
 
     }
+
     public static void main(String[] args) {
         populateVisitInformation();
         AppoinmentBO appoinmentBO = new AppoinmentBO();
 
-        Appoinment newAppoinment = appoinmentBO.createAppoinment(201l, patientMap,3l,doctorMap,
-                2l,appoinmentMap, Calendar.getInstance().getTime(),"Regular checkup");
-        appoinmentMap.put(newAppoinment.getAppoinmentID(), newAppoinment);
+        Appoinment newAppoinment = appoinmentBO.createAppoinment(2l, patientMap, 3l, doctorMap, appoinmentMap, "Regular checkup");
+        System.out.println(newAppoinment);
+
+
+        VisitingInformationBO visitingInformationBO = new VisitingInformationBO();
+
+            VisitingInformation newVisitInformation = visitingInformationBO.createVisitLogInformation(2l, appoinmentMap, visitDetails,
+                    medicineList, "take medicine regularly", true);
+            System.out.println(newVisitInformation);
+            System.out.println();
+
+
+        }
 
     }
-}
+
 
 
 

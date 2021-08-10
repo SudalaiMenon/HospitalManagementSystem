@@ -50,7 +50,7 @@ public class Patient {
             this.address = address;
       }
 
-      public String getTypeIpOp() {
+      public String getTypeIpOp(String ip) {
             return typeIpOp;
       }
 
@@ -58,6 +58,15 @@ public class Patient {
             this.typeIpOp = typeIpOp;
       }
 
-
-
+      @Override
+      public String toString() {
+            return "Patient{" +
+                    "patientName='" + patientName + '\'' +
+                    ", patientID=" + patientID +
+                    ", patientDOB=" + patientDOB +
+                    ", phoneNumber='" + phoneNumber + '\'' +
+                    ", address='" + address + '\'' +
+                    ", typeIpOp='" + typeIpOp + '\'' +
+                    '}';
+      }
 }

@@ -29,4 +29,12 @@ public class Doctor {
         this.specialisation = specialisation;
     }
 
+    @Override
+    public String toString() {
+        return "Doctor{" +
+                "doctorID=" + doctorID +
+                ", doctorName='" + doctorName + '\'' +
+                ", specialisation='" + specialisation + '\'' +
+                '}';
+    }
 }
