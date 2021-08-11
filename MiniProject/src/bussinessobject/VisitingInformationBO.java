@@ -28,13 +28,15 @@ public class VisitingInformationBO {
         if (visitDetails.isEmpty()) {
             throw new Exception(" visitDetails empty ");
         }
-        if (medicines.isEmpty()) {
+       /* if (medicines.isEmpty()) {
             throw new Exception(" medicines empty ");
-        }
+        }*/
 
         Appoinment appointment = new Appoinment();
         if (appointmentMap.containsKey(appointmentId)) {
             appointment = appointmentMap.get(appointmentId);
+            System.out.println(appointment.getPatient());
+
         }
 
         Patient patient = appointment.getPatient();
@@ -43,11 +45,14 @@ public class VisitingInformationBO {
         visitingInformation.setVisitId(Utility.getVisitId(new ArrayList<>(visitDetails.keySet())));
         visitingInformation.setDoctorRecommendation(doctorRecommendation);
         visitingInformation.setFollowUpNeed(followUpNeed);
-        visitingInformation.setMedicines(medicines);
+        visitingInformation.setMedicinesList(medicines);
         visitingInformation.setAppoinment(appointment);
+        System.out.println(visitingInformation);
+        System.out.println(patient.getPatientID());
 
         Boolean status = checkPatientType(visitDetails, patient);
         visitDetails.put(visitingInformation.getVisitId(), visitingInformation);
+
 
         return patient;
     }

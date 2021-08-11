@@ -7,7 +7,7 @@ public class VisitingInformation {
     private Long visitId;
     private Appoinment appoinment;
     private String doctorRecommendation;
-    private List<Medicine> medicines;
+    private List<Medicine> medicinesList;
     private Boolean followUpNeed;
 
     public long getVisitId() {
@@ -34,13 +34,7 @@ public class VisitingInformation {
         this.doctorRecommendation = doctorRecommendation;
     }
 
-    public List<Medicine> getMedicines() {
-        return medicines;
-    }
 
-    public void setMedicines(List<Medicine> medicines) {
-        this.medicines = medicines;
-    }
 
     public Boolean getFollowUpNeed() {
         return followUpNeed;
@@ -50,13 +44,21 @@ public class VisitingInformation {
         this.followUpNeed = followUpNeed;
     }
 
+    public List<Medicine> getMedicinesList() {
+        return medicinesList;
+    }
+
+    public void setMedicinesList(List<Medicine> medicinesList) {
+        this.medicinesList = medicinesList;
+    }
+
     @Override
     public String toString() {
         return "VisitingInformation{" +
                 "visitId=" + visitId +
                 ", appoinment=" + appoinment +
                 ", doctorRecommendation='" + doctorRecommendation + '\'' +
-                ", medicines=" + medicines +
+                ", medicinesList=" + medicinesList +
                 ", followUpNeed=" + followUpNeed +
                 '}';
     }

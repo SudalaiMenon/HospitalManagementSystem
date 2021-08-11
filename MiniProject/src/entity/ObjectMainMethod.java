@@ -86,35 +86,35 @@ public class ObjectMainMethod {
         patientMap = new HashMap<>();
         patientRamana = new Patient();
         patientRamana.setPatientName("Ramana");
-        patientRamana.setPatientID(201l);
+        patientRamana.setPatientID(1l);
         patientRamana.setPatientDOB(new Date(2000, 01, 20));
         patientRamana.setPhoneNumber("9995013779");
         patientRamana.setTypeIpOp("OutPatient");
 
         patientMurugan = new Patient();
         patientMurugan.setPatientName("Murugan");
-        patientMurugan.setPatientID(202l);
+        patientMurugan.setPatientID(2l);
         patientMurugan.setPatientDOB(new Date(1997, 12, 25));
         patientMurugan.setPhoneNumber("8995013779");
         patientMurugan.setTypeIpOp("OutPatient");
 
         patientLaxmi = new Patient();
         patientLaxmi.setPatientName("Laxmi");
-        patientLaxmi.setPatientID(203l);
+        patientLaxmi.setPatientID(3l);
         patientLaxmi.setPatientDOB(new Date(1995, 11, 15));
         patientLaxmi.setPhoneNumber("8995013755");
         patientLaxmi.setTypeIpOp("OutPatient");
 
         patientLaxmanan = new Patient();
         patientLaxmanan.setPatientName("Laxmanan");
-        patientLaxmanan.setPatientID(204l);
+        patientLaxmanan.setPatientID(4l);
         patientLaxmanan.setPatientDOB(new Date(2002, 01, 12));
         patientLaxmanan.setPhoneNumber("7995013750");
         patientLaxmanan.setTypeIpOp("OutPatient");
 
         patientKumaran = new Patient();
         patientKumaran.setPatientName("Kumaran");
-        patientKumaran.setPatientID(205l);
+        patientKumaran.setPatientID(5l);
         patientKumaran.setPatientDOB(new Date(1987, 10, 18));
         patientKumaran.setPhoneNumber("9445013750");
         patientKumaran.setTypeIpOp("OutPatient");
@@ -127,8 +127,8 @@ public class ObjectMainMethod {
 
         appoinmentOne = new Appoinment();
         appoinmentOne.setAppoinmentID(1l);
-        appoinmentOne.setDoctor(doctorMap.get(0001l));
-        appoinmentOne.setPatient(patientMap.get(201l));
+        appoinmentOne.setDoctor(doctorMap.get(1l));
+        appoinmentOne.setPatient(patientMap.get(1l));
         appoinmentOne.setDateOfVisit(new Date(2021, 06, 10));
         appoinmentOne.setPurposeOfVisit("Chest pain");
         appoinmentOne.setBp(120.5);
@@ -137,8 +137,8 @@ public class ObjectMainMethod {
 
         appoinmentTwo = new Appoinment();
         appoinmentTwo.setAppoinmentID(2l);
-        appoinmentTwo.setDoctor(doctorMap.get(0002l));
-        appoinmentTwo.setPatient(patientMap.get(202l));
+        appoinmentTwo.setDoctor(doctorMap.get(2l));
+        appoinmentTwo.setPatient(patientMap.get(2l));
         appoinmentTwo.setDateOfVisit(new Date(2021, 05, 15));
         appoinmentTwo.setPurposeOfVisit("leg bone cracking");
         appoinmentTwo.setBp(100.5);
@@ -147,8 +147,8 @@ public class ObjectMainMethod {
 
         appoinmentThree = new Appoinment();
         appoinmentThree.setAppoinmentID(3l);
-        appoinmentThree.setDoctor(doctorMap.get(0003l));
-        appoinmentThree.setPatient(patientMap.get(203l));
+        appoinmentThree.setDoctor(doctorMap.get(3l));
+        appoinmentThree.setPatient(patientMap.get(3l));
         appoinmentThree.setDateOfVisit(new Date(2021, 02, 12));
         appoinmentThree.setPurposeOfVisit("Starting stage of cancer");
         appoinmentThree.setBp(101.00);
@@ -157,8 +157,8 @@ public class ObjectMainMethod {
 
         appoinmentFour = new Appoinment();
         appoinmentFour.setAppoinmentID(4l);
-        appoinmentFour.setDoctor(doctorMap.get(0004l));
-        appoinmentFour.setPatient(patientMap.get(204l));
+        appoinmentFour.setDoctor(doctorMap.get(4l));
+        appoinmentFour.setPatient(patientMap.get(2l));
         appoinmentFour.setDateOfVisit(new Date(2021, 7, 29));
         appoinmentFour.setPurposeOfVisit("fever with body pain");
         appoinmentFour.setBp(105.5);
@@ -166,9 +166,9 @@ public class ObjectMainMethod {
         appoinmentFour.setIsFirstVisit(true);
 
         appoinmentFive = new Appoinment();
-        appoinmentFive.setAppoinmentID(1l);
-        appoinmentFive.setDoctor(doctorMap.get(0001l));
-        appoinmentFive.setPatient(patientMap.get(205l));
+        appoinmentFive.setAppoinmentID(5l);
+        appoinmentFive.setDoctor(doctorMap.get(5l));
+        appoinmentFive.setPatient(patientMap.get(5l));
         appoinmentFive.setDateOfVisit(new Date(2021, 06, 17));
         appoinmentFive.setPurposeOfVisit("Again Chest pain");
         appoinmentFive.setBp(100.5);
@@ -176,9 +176,9 @@ public class ObjectMainMethod {
         appoinmentFive.setIsFirstVisit(true);
 
         appoinmentSix = new Appoinment();
-        appoinmentSix.setAppoinmentID(2l);
-        appoinmentSix.setDoctor(doctorMap.get(0001l));
-        appoinmentSix.setPatient(patientMap.get(206l));
+        appoinmentSix.setAppoinmentID(6l);
+        appoinmentSix.setDoctor(doctorMap.get(6l));
+        appoinmentSix.setPatient(patientMap.get(2l));
         appoinmentSix.setDateOfVisit(new Date(2021, 06, 16));
         appoinmentSix.setPurposeOfVisit("Again Chest pain");
         appoinmentSix.setBp(100.5);
@@ -187,8 +187,8 @@ public class ObjectMainMethod {
 
         appoinmentSeven = new Appoinment();
         appoinmentSeven.setAppoinmentID(7l);
-        appoinmentSeven.setDoctor(doctorMap.get(0001l));
-        appoinmentSeven.setPatient(patientMap.get(207l));
+        appoinmentSeven.setDoctor(doctorMap.get(7l));
+        appoinmentSeven.setPatient(patientMap.get(7l));
         appoinmentSeven.setDateOfVisit(new Date(2021, 07, 26));
         appoinmentSeven.setPurposeOfVisit("Again Chest pain");
         appoinmentSeven.setBp(98.00);
@@ -196,9 +196,9 @@ public class ObjectMainMethod {
         appoinmentSeven.setIsFirstVisit(true);
 
         appoinmentEight = new Appoinment();
-        appoinmentEight.setAppoinmentID(2l);
-        appoinmentEight.setDoctor(doctorMap.get(0001l));
-        appoinmentEight.setPatient(patientMap.get(208l));
+        appoinmentEight.setAppoinmentID(8l);
+        appoinmentEight.setDoctor(doctorMap.get(8l));
+        appoinmentEight.setPatient(patientMap.get(2l));
         appoinmentEight.setDateOfVisit(new Date(2021, 8, 27));
         appoinmentEight.setPurposeOfVisit("Again Chest pain");
         appoinmentEight.setBp(120.5);
@@ -217,28 +217,28 @@ public class ObjectMainMethod {
         appoinmentMap.put(appoinmentEight.getAppoinmentID(), appoinmentEight);
 
         medicineForCardiology = new Medicine();
-        medicineForCardiology.setMedicineId(50l);
+        medicineForCardiology.setMedicineId(1l);
         medicineForCardiology.setMedicineName("Ecospirin");
         medicineForCardiology.setMedicinePurpose("release heart pain");
         medicineForCardiology.setExpiryDate(new Date(2024, 3, 3));
         medicineForCardiology.setBatchNumber("c1245");
 
         medicineForOrthopedic = new Medicine();
-        medicineForOrthopedic.setMedicineId(51l);
+        medicineForOrthopedic.setMedicineId(2l);
         medicineForOrthopedic.setMedicineName("Calcium Citrate");
         medicineForOrthopedic.setMedicinePurpose("Joit pain support");
         medicineForOrthopedic.setExpiryDate(new Date(2023, 02, 15));
         medicineForOrthopedic.setBatchNumber("b7545");
 
         medicineForCancer = new Medicine();
-        medicineForCancer.setMedicineId(52l);
+        medicineForCancer.setMedicineId(3l);
         medicineForCancer.setMedicineName("Gifitinib");
         medicineForCancer.setMedicinePurpose("Cancer Chemotherapy medicine");
         medicineForCancer.setExpiryDate(new Date(2022, 12, 20));
         medicineForCancer.setBatchNumber("Dn375");
 
         medicineForAyurvedha = new Medicine();
-        medicineForAyurvedha.setMedicineId(53l);
+        medicineForAyurvedha.setMedicineId(4l);
         medicineForAyurvedha.setMedicineName("Sandhivati");
         medicineForAyurvedha.setMedicinePurpose("Arthiritic and join pain");
         medicineForAyurvedha.setExpiryDate(new Date(2020, 11, 01));
@@ -259,15 +259,15 @@ public class ObjectMainMethod {
         }*/
     }
 
-    static public List<Medicine> getMedicine() {
+    public static List<Medicine> getMedicine() {
 
         medicineList = new ArrayList<>();
 
         Random random = new Random();
         int randomNumber;
         for (int i = 0; i < 3; i++) {
-            randomNumber = random.nextInt(5);
-            if (medicinDetails.containsKey(new Long(randomNumber)))
+            randomNumber = random.nextInt(3);
+            if (medicinDetails.containsKey(new Long(randomNumber)));
                 medicineList.add(medicinDetails.get(new Long(randomNumber)));
 
         }
@@ -279,32 +279,32 @@ public class ObjectMainMethod {
     static public void populateVisitInformation() {
 
         heartCheckup = new VisitingInformation();
-        heartCheckup.setVisitId(20l);
+        heartCheckup.setVisitId(1l);
         heartCheckup.setAppoinment(appoinmentMap.get(1l));
         heartCheckup.setDoctorRecommendation("you feel chest pain visit again immediatly");
         heartCheckup.setFollowUpNeed(true);
-        heartCheckup.setMedicines(getMedicine());
+        heartCheckup.setMedicinesList(getMedicine());
 
         boneCheckup = new VisitingInformation();
-        boneCheckup.setVisitId(21l);
-        boneCheckup.setAppoinment(appoinmentMap.get(2l));
+        boneCheckup.setVisitId(2l);
+        boneCheckup.setAppoinment(appoinmentMap.get(4l));
         boneCheckup.setDoctorRecommendation("Dont shake your legs");
         boneCheckup.setFollowUpNeed(true);
-        boneCheckup.setMedicines(getMedicine());
+        boneCheckup.setMedicinesList(getMedicine());
 
         lungsCheckup = new VisitingInformation();
-        lungsCheckup.setVisitId(22l);
-        lungsCheckup.setAppoinment(appoinmentMap.get(3l));
+        lungsCheckup.setVisitId(3l);
+        lungsCheckup.setAppoinment(appoinmentMap.get(6l));
         lungsCheckup.setDoctorRecommendation("you have breath problem and visit again");
         lungsCheckup.setFollowUpNeed(true);
-        lungsCheckup.setMedicines(getMedicine());
+        lungsCheckup.setMedicinesList(getMedicine());
 
         bodyPainCheckup = new VisitingInformation();
-        bodyPainCheckup.setVisitId(23l);
-        bodyPainCheckup.setAppoinment(appoinmentMap.get(4l));
+        bodyPainCheckup.setVisitId(4l);
+        bodyPainCheckup.setAppoinment(appoinmentMap.get(8l));
         bodyPainCheckup.setDoctorRecommendation("No worries just a fever, take one day rest");
         bodyPainCheckup.setFollowUpNeed(false);
-        bodyPainCheckup.setMedicines(getMedicine());
+        bodyPainCheckup.setMedicinesList(getMedicine());
 
         visitDetails = new HashMap<>();
         visitDetails.put(heartCheckup.getVisitId(), heartCheckup);
@@ -319,18 +319,23 @@ public class ObjectMainMethod {
         populateVisitInformation();
         AppoinmentBO appoinmentBO = new AppoinmentBO();
 
-        Appoinment newAppoinment = appoinmentBO.createAppoinment(2l, patientMap, 3l, doctorMap, appoinmentMap, "Regular checkup");
-        System.out.println(newAppoinment);
+       // Appoinment newAppoinment = appoinmentBO.createAppoinment(2l, patientMap, 3l, doctorMap, appoinmentMap, "Regular checkup");
+       // System.out.println(newAppoinment);
 
 
         VisitingInformationBO visitingInformationBO = new VisitingInformationBO();
+       // VisitingInformation visitingInformation = new VisitingInformation();
 
-            VisitingInformation newVisitInformation = visitingInformationBO.createVisitLogInformation(2l, appoinmentMap, visitDetails,
+        System.out.println(appoinmentMap.get(2l).getPatient());
+        try{
+            Patient patient = visitingInformationBO.createVisitLogInformation(2l, appoinmentMap, visitDetails,
                     medicineList, "take medicine regularly", true);
-            System.out.println(newVisitInformation);
-            System.out.println();
-
-
+            patientMap.put(patient.getPatientID(), patient);
+            System.out.println(patient);
+            System.out.println(medicineList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         }
 
     }
