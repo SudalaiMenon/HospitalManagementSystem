@@ -1,7 +1,7 @@
-package details;
+package entity;
 
 public class Bed {
-    private long bedId;
+    private Long bedId;
     private String bedType;
     private  String roomName;
 
@@ -29,5 +29,13 @@ public class Bed {
         this.roomName = roomName;
     }
 
-
+    @Override
+    public String toString() {
+        return "Bed{" +
+                "bedId=" + bedId +
+                ", bedType='" + bedType + '\'' +
+                ", roomName='" + roomName + '\'' +
+                '}';
+    }
 }
+

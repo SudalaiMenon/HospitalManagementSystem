@@ -13,29 +13,11 @@ public class VisitingInformationBO {
                                              List<Medicine> medicines, String doctorRecommendation,
                                              Boolean followUpNeed) throws Exception {
 
-        if (appointmentId == null) {
-            throw new Exception(" appointmentId is null ");
-        }
-        if (doctorRecommendation == null) {
-            throw new Exception(" doctorRecommendation is null ");
-        }
-        if (followUpNeed == null) {
-            throw new Exception(" followUpNeed is null ");
-        }
-        if (appointmentMap.isEmpty()) {
-            throw new Exception(" appointmentMap empty ");
-        }
-        if (visitDetails.isEmpty()) {
-            throw new Exception(" visitDetails empty ");
-        }
-       /* if (medicines.isEmpty()) {
-            throw new Exception(" medicines empty ");
-        }*/
 
         Appoinment appointment = new Appoinment();
         if (appointmentMap.containsKey(appointmentId)) {
             appointment = appointmentMap.get(appointmentId);
-            System.out.println(appointment.getPatient());
+          //  System.out.println(appointment.getPatient());
 
         }
 

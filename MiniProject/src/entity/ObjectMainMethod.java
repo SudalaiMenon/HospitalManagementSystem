@@ -1,5 +1,6 @@
 package entity;
 
+import bussinessobject.BedBO;
 import bussinessobject.VisitingInformationBO;
 
 import java.util.*;
@@ -47,6 +48,19 @@ public class ObjectMainMethod {
 
     private static List<Medicine> medicineList;
     private static Medicine medicine;
+
+    private static Map<Long, Ip> inPatient;
+    private static Ip patient1;
+    private static Ip patient2;
+    private static Ip patient3;
+
+
+    private static  Map<Long, Bed> bedMap;
+    private static Bed bedOne;
+    private static Bed bedTwo;
+    private static Bed bedThree;
+    private static Bed bedFour;
+    private static Bed bedFive;
 
     static {
         hospitalMap = new HashMap();
@@ -96,28 +110,28 @@ public class ObjectMainMethod {
         patientMurugan.setPatientID(2l);
         patientMurugan.setPatientDOB(new Date(1997, 12, 25));
         patientMurugan.setPhoneNumber("8995013779");
-        patientMurugan.setTypeIpOp("OutPatient");
+        patientMurugan.setTypeIpOp("OP");
 
         patientLaxmi = new Patient();
         patientLaxmi.setPatientName("Laxmi");
         patientLaxmi.setPatientID(3l);
         patientLaxmi.setPatientDOB(new Date(1995, 11, 15));
         patientLaxmi.setPhoneNumber("8995013755");
-        patientLaxmi.setTypeIpOp("OutPatient");
+        patientLaxmi.setTypeIpOp("OP");
 
         patientLaxmanan = new Patient();
         patientLaxmanan.setPatientName("Laxmanan");
         patientLaxmanan.setPatientID(4l);
         patientLaxmanan.setPatientDOB(new Date(2002, 01, 12));
         patientLaxmanan.setPhoneNumber("7995013750");
-        patientLaxmanan.setTypeIpOp("OutPatient");
+        patientLaxmanan.setTypeIpOp("OP");
 
         patientKumaran = new Patient();
         patientKumaran.setPatientName("Kumaran");
         patientKumaran.setPatientID(5l);
         patientKumaran.setPatientDOB(new Date(1987, 10, 18));
         patientKumaran.setPhoneNumber("9445013750");
-        patientKumaran.setTypeIpOp("OutPatient");
+        patientKumaran.setTypeIpOp("OP");
 
         patientMap.put(patientRamana.getPatientID(), patientRamana);
         patientMap.put(patientMurugan.getPatientID(), patientMurugan);
@@ -251,12 +265,65 @@ public class ObjectMainMethod {
         medicinDetails.put(medicineForCancer.getMedicineId(), medicineForCancer);
         medicinDetails.put(medicineForAyurvedha.getMedicineId(), medicineForAyurvedha);
 
-        /*medicineList = new ArrayList<>();
-        for(Map.Entry<Long,Medicine> medicineEntry : medicinDetails.entrySet()) {
-            medicine = medicineEntry.getValue();
-            //System.out.println(medicine.getMedicineName());
-            medicineList.add(medicine);
-        }*/
+        patient1= new Ip();
+        patient1.setPatientId(2l);
+        patient1.setIpIdentificationNumber(1l);
+        patient1.setPatient(patientMurugan);
+        patient1.setBed(bedOne);
+
+        patient2 = new Ip();
+        patient2.setPatientId(2l);
+        patient2.setIpIdentificationNumber(2l);
+        patient2.setPatient(patientMurugan);
+        patient2.setBed(bedOne);
+
+        patient3 = new Ip();
+        patient3.setPatientId(2l);
+        patient3.setIpIdentificationNumber(2l);
+        patient3.setPatient(patientMurugan);
+        patient3.setBed(bedOne);
+
+        inPatient = new HashMap<>();
+        inPatient.put(patient1.getPatientId(), patient1);
+        inPatient.put(patient2.getPatientId(), patient2);
+        inPatient.put(patient3.getPatientId(), patient3);
+
+
+        bedOne = new Bed();
+        bedOne.setBedId(1l);
+        bedOne.setBedType("Normal single bed");
+        bedOne.setRoomName("A");
+
+        bedTwo = new Bed();
+        bedTwo.setBedId(2l);
+        bedTwo.setBedType("Normal single bed");
+        bedTwo.setRoomName("B");
+
+        bedThree = new Bed();
+        bedThree.setBedId(3l);
+        bedThree.setBedType("Double bed");
+        bedThree.setRoomName("C");
+
+        bedFour = new Bed();
+        bedFour.setBedId(4l);
+        bedFour.setBedType("Double bed");
+        bedFour.setRoomName("D");
+
+        bedFive = new Bed();
+        bedFive.setBedId(5l);
+        bedFive.setBedType("Double bed with High class" );
+        bedFive.setRoomName("E");
+
+        bedMap = new HashMap<>();
+        bedMap.put(bedOne.getBedId(), bedOne);
+        bedMap.put(bedTwo.getBedId(), bedTwo);
+        bedMap.put(bedThree.getBedId(), bedThree);
+        bedMap.put(bedFour.getBedId(), bedFour);
+        bedMap.put(bedFive.getBedId(), bedFive);
+
+
+
+
     }
 
     public static List<Medicine> getMedicine() {
@@ -313,6 +380,8 @@ public class ObjectMainMethod {
         visitDetails.put(bodyPainCheckup.getVisitId(), bodyPainCheckup);
 
 
+
+
     }
 
     public static void main(String[] args) {
@@ -332,10 +401,20 @@ public class ObjectMainMethod {
                     medicineList, "take medicine regularly", true);
             patientMap.put(patient.getPatientID(), patient);
             System.out.println(patient);
-            System.out.println(medicineList);
+           // System.out.println(medicineList);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        BedBO bedBO = new BedBO();
+        try {
+             bedBO.bedAllocateInPatient(2l, patientMap, 2l, bedMap, inPatient, "Normal bed", "A");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+
         }
 
     }

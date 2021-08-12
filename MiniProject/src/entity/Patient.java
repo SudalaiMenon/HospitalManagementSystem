@@ -50,7 +50,7 @@ public class Patient {
             this.address = address;
       }
 
-      public String getTypeIpOp(String ip) {
+      public String getTypeIpOp() {
             return typeIpOp;
       }
 
