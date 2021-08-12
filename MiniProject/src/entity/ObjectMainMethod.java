@@ -1,6 +1,7 @@
 package entity;
 
 import bussinessobject.BedBO;
+import bussinessobject.DisplayReport;
 import bussinessobject.VisitingInformationBO;
 
 import java.util.*;
@@ -320,10 +321,6 @@ public class ObjectMainMethod {
         bedMap.put(bedThree.getBedId(), bedThree);
         bedMap.put(bedFour.getBedId(), bedFour);
         bedMap.put(bedFive.getBedId(), bedFive);
-
-
-
-
     }
 
     public static List<Medicine> getMedicine() {
@@ -413,6 +410,9 @@ public class ObjectMainMethod {
             System.out.println(e.getMessage());
         }
 
+
+        DisplayReport displayReport = new DisplayReport();
+        displayReport.displayPatientDetails(patientMap, 2l, "Murugan");
 
 
         }

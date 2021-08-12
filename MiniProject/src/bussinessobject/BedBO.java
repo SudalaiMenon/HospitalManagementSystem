@@ -1,7 +1,7 @@
 package bussinessobject;
 
 import entity.Bed;
-import entity.GenerateIdentificationNumber;
+import entity.IdentificationNumber;
 import entity.Ip;
 import entity.Patient;
 
@@ -20,7 +20,7 @@ public void bedAllocateInPatient(Long patientId, Map<Long, Patient> patientMap, 
       //  System.out.println(patient);
     }
 
-    ip.setIpIdentificationNumber(GenerateIdentificationNumber.getIpIdentificationNumber(new ArrayList<Long>(inPatient.keySet())));
+    ip.setIpIdentificationNumber(IdentificationNumber.getIpIdentificationNumber(new ArrayList<Long>(inPatient.keySet())));
 
     if(patient.getTypeIpOp().equals("IP")) {
         ip.setPatient(patient);

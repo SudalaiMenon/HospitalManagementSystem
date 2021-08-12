@@ -3,7 +3,7 @@ package entity;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class GenerateIdentificationNumber {
+public class IdentificationNumber {
 
     static public Long getIpIdentificationNumber(ArrayList<Long> id) {
 
