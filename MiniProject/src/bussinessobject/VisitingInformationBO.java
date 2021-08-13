@@ -1,6 +1,7 @@
 package bussinessobject;
 
 import entity.*;
+import untility.Utility;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -34,7 +35,6 @@ public class VisitingInformationBO {
 
         Boolean status = checkPatientType(visitDetails, patient);
         visitDetails.put(visitingInformation.getVisitId(), visitingInformation);
-
 
         return patient;
     }

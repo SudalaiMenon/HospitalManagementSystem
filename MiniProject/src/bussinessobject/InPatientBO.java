@@ -8,7 +8,7 @@ import entity.Patient;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class BedBO {
+public class InPatientBO {
 public void bedAllocateInPatient(Long patientId, Map<Long, Patient> patientMap, Long bedId, Map<Long, Bed> bedMap,
                                  Map<Long, Ip> inPatient, String bedType, String roomName) throws Exception {
     System.out.println();

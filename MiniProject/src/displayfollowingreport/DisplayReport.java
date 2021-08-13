@@ -1,4 +1,4 @@
-package bussinessobject;
+package displayfollowingreport;
 
 import entity.Patient;
 
