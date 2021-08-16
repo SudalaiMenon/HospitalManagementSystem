@@ -12,7 +12,7 @@ public class VisitingInformationBO {
     public Patient createVisitLogInformation(Long appointmentId, Map<Long, Appoinment> appointmentMap,
                                              Map<Long, VisitingInformation> visitDetails,
                                              List<Medicine> medicines, String doctorRecommendation,
-                                             Boolean followUpNeed) throws Exception {
+                                             Boolean followUpNeed)  {
 
 
         Appoinment appointment = new Appoinment();
@@ -54,7 +54,7 @@ public class VisitingInformationBO {
         System.out.println("visitCount : " + visitCount);
 
         if (visitCount >= 3) {
-            patient.setTypeIpOp("IP");
+            patient.setPatientType("IP");
             return true;
         }
         return false;

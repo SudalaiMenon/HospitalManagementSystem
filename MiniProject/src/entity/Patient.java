@@ -8,7 +8,7 @@ public class Patient {
       private Date patientDOB;
       private String phoneNumber;
       private String address;
-      private String typeIpOp;
+      private String patientType;
 
       public String getPatientName() {
             return patientName;
@@ -50,12 +50,12 @@ public class Patient {
             this.address = address;
       }
 
-      public String getTypeIpOp() {
-            return typeIpOp;
+      public String getPatientType() {
+            return patientType;
       }
 
-      public void setTypeIpOp(String typeIpOp) {
-            this.typeIpOp = typeIpOp;
+      public void setPatientType(String patientType) {
+            this.patientType = patientType;
       }
 
       @Override
@@ -66,7 +66,7 @@ public class Patient {
                     ", patientDOB=" + patientDOB +
                     ", phoneNumber='" + phoneNumber + '\'' +
                     ", address='" + address + '\'' +
-                    ", typeIpOp='" + typeIpOp + '\'' +
+                    ", typeIpOp='" + patientType + '\'' +
                     '}';
       }
 }

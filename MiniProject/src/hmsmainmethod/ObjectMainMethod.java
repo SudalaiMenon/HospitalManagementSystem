@@ -72,35 +72,35 @@ public class ObjectMainMethod {
         patientRamana.setPatientID(1l);
         patientRamana.setPatientDOB(new Date(2000, 01, 20));
         patientRamana.setPhoneNumber("9995013779");
-        patientRamana.setTypeIpOp("OutPatient");
+        patientRamana.setPatientType("OutPatient");
 
         Patient patientMurugan = new Patient();
         patientMurugan.setPatientName("Murugan");
         patientMurugan.setPatientID(2l);
         patientMurugan.setPatientDOB(new Date(1997, 12, 25));
         patientMurugan.setPhoneNumber("8995013779");
-        patientMurugan.setTypeIpOp("OP");
+        patientMurugan.setPatientType("OP");
 
         Patient patientLaxmi = new Patient();
         patientLaxmi.setPatientName("Laxmi");
         patientLaxmi.setPatientID(3l);
         patientLaxmi.setPatientDOB(new Date(1995, 11, 15));
         patientLaxmi.setPhoneNumber("8995013755");
-        patientLaxmi.setTypeIpOp("OP");
+        patientLaxmi.setPatientType("OP");
 
         Patient patientLaxmanan = new Patient();
         patientLaxmanan.setPatientName("Laxmanan");
         patientLaxmanan.setPatientID(4l);
         patientLaxmanan.setPatientDOB(new Date(2002, 01, 12));
         patientLaxmanan.setPhoneNumber("7995013750");
-        patientLaxmanan.setTypeIpOp("OP");
+        patientLaxmanan.setPatientType("OP");
 
         Patient patientKumaran = new Patient();
         patientKumaran.setPatientName("Kumaran");
         patientKumaran.setPatientID(5l);
         patientKumaran.setPatientDOB(new Date(1987, 10, 18));
         patientKumaran.setPhoneNumber("9445013750");
-        patientKumaran.setTypeIpOp("OP");
+        patientKumaran.setPatientType("OP");
 
         patientMap.put(patientRamana.getPatientID(), patientRamana);
         patientMap.put(patientMurugan.getPatientID(), patientMurugan);
@@ -271,7 +271,7 @@ public class ObjectMainMethod {
         Ip patient1 = new Ip();
         patient1.setPatientId(1l);
         patient1.setIpIdentificationNumber(1l);
-        patient1.setPatient(patientKumaran);
+        patient1.setPatient(patientMurugan);
         patient1.setBed(bedMap.get(1l));
 
         Ip patient2 = new Ip();
@@ -283,7 +283,7 @@ public class ObjectMainMethod {
         Ip patient3 = new Ip();
         patient3.setPatientId(3l);
         patient3.setIpIdentificationNumber(3l);
-        patient3.setPatient(patientLaxmanan);
+        patient3.setPatient(patientMurugan);
         patient3.setBed(bedMap.get(3l));
 
         inPatient = new HashMap<>();
@@ -299,7 +299,7 @@ public class ObjectMainMethod {
 
         Random random = new Random();
         int randomNumber;
-        for (int i = 0; i < 3; i++) {
+        for (int i = 1; i < 3; i++) {
             randomNumber = random.nextInt(3);
             if (medicinDetails.containsKey(new Long(randomNumber)));
             medicineList.add(medicinDetails.get(new Long(randomNumber)));
@@ -348,31 +348,39 @@ public class ObjectMainMethod {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         populateVisitInformation();
         VisitingInformationBO visitingInformationBO = new VisitingInformationBO();
         System.out.println(appoinmentMap.get(2l).getPatient());
 
-        try{
-            Patient patient = visitingInformationBO.createVisitLogInformation(2l, appoinmentMap, visitDetails,
-                    medicineList, "take medicine regularly", true);
-            patientMap.put(patient.getPatientID(), patient);
-            System.out.println(patient);
-            // System.out.println(medicineList);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        Patient patient = visitingInformationBO.createVisitLogInformation(2l, appoinmentMap, visitDetails,
+                                                                          medicineList, "take medicine regularly", true);
+        patientMap.put(patient.getPatientID(), patient);
+        System.out.println(patient);
+        // System.out.println(medicineList);
+
 
         InPatientBO bedBO = new InPatientBO();
-        try {
-            bedBO.bedAllocateInPatient(2l, patientMap, 2l, bedMap, inPatient, "Normal bed", "A");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        bedBO.bedAllocateInPatient(2l, patientMap, 2l, bedMap, inPatient, "Normal bed", "A");
 
 
         DisplayReport displayReport = new DisplayReport();
         displayReport.displayPatientDetails(patientMap, 2l, "Murugan");
+
+        displayReport.displayListOfVisitPatiendId(visitDetails, 2l);
+
+        displayReport.displayFollowUpVisit(visitDetails);
+
+        displayReport.displayOnlyOutPatient((patientMap));
+
+        displayReport.displayPatientByDoctorId(appoinmentMap, 0001l);
+
+        displayReport.displayWhoInPatient(inPatient);
+
+        displayReport.todayVisitPatient(visitDetails);
+
+
 
 
     }

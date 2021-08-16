@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class InPatientBO {
 public void bedAllocateInPatient(Long patientId, Map<Long, Patient> patientMap, Long bedId, Map<Long, Bed> bedMap,
-                                 Map<Long, Ip> inPatient, String bedType, String roomName) throws Exception {
+                                 Map<Long, Ip> inPatient, String bedType, String roomName)  {
     System.out.println();
     Ip ip =new Ip();
 
@@ -19,10 +19,9 @@ public void bedAllocateInPatient(Long patientId, Map<Long, Patient> patientMap, 
         patient = patientMap.get(patientId);
       //  System.out.println(patient);
     }
-
     ip.setIpIdentificationNumber(IdentificationNumber.getIpIdentificationNumber(new ArrayList<Long>(inPatient.keySet())));
 
-    if(patient.getTypeIpOp().equals("IP")) {
+    if(patient.getPatientType().equals("IP")) {
         ip.setPatient(patient);
         ip.setBed(bedMap.get(bedId));
     }
