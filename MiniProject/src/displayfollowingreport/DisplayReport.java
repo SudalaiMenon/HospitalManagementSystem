@@ -5,6 +5,7 @@ import entity.Ip;
 import entity.Patient;
 import entity.VisitingInformation;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -87,21 +88,44 @@ public void displayListOfVisitPatiendId(Map<Long, VisitingInformation> visitingI
         }
     }
 
-    public void todayVisitPatient(Map<Long, VisitingInformation> visitingInformationMap) {
-        VisitingInformation todayVisit;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyy");
-        SimpleDateFormat dateFormatOne = new SimpleDateFormat("dd/mm/yyyy");
+    public void todayVisitPatient(Map<Long, Appoinment> appoinmentMap) {
+        Appoinment todayVisit;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat dateFormatOne = new SimpleDateFormat("dd/MM/yyyy");
 
-        for(Long visitId : visitingInformationMap.keySet()) {
-            todayVisit = visitingInformationMap.get(visitId);
-            Date date = todayVisit.getAppoinment().getDateOfVisit();
+        for (Long appoinmentId : appoinmentMap.keySet()) {
+            todayVisit = appoinmentMap.get(appoinmentId);
+            Date date = todayVisit.getDateOfVisit();
+           //  System.out.println(date);
             String dateOne = dateFormat.format(date);
             String dateTwo = dateFormatOne.format(Calendar.getInstance().getTime());
-            if(dateOne.equals(dateTwo)) {
-                System.out.println(todayVisit.getAppoinment().getPatient());
+            if (dateOne.equals(dateTwo)) {
+                System.out.println("Display the today’s visited patient :" + todayVisit.getPatient());
+                break;
             }
         }
-
     }
+    public void displayDetailsDateRange(Map<Long, VisitingInformation> visitInformationMap) throws ParseException {
+        VisitingInformation visitRange;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        for(Long visitId : visitInformationMap.keySet()) {
+            visitRange = visitInformationMap.get(visitId);
+            Date dates = visitRange.getAppoinment().getDateOfVisit();
+            Date date = new SimpleDateFormat("yyyy/MM/dd").parse(simpleDateFormat.format(dates));
 
+            // System.out.println(dates);
+            try {
+                Date startDate = new SimpleDateFormat("yyyy/MM/dd").parse("2020/1/10");
+                Date endDate = new SimpleDateFormat("yyyy/MM/dd").parse("2020/3/20");
+                if(dates.after(startDate) && (dates.before(endDate)))
+                {
+                    System.out.println("Display the visit details for given date range: " + visitRange);
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+        }
+    }
 }

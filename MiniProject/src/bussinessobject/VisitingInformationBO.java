@@ -35,7 +35,6 @@ public class VisitingInformationBO {
 
         Boolean status = checkPatientType(visitDetails, patient);
         visitDetails.put(visitingInformation.getVisitId(), visitingInformation);
-
         return patient;
     }
 
