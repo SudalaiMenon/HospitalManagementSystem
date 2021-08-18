@@ -143,7 +143,7 @@ public class ObjectMainMethod {
 
         Appoinment appoinmentTwo = new Appoinment();
         calendar = Calendar.getInstance();
-        calendar.set(2020, 1, 10, 0, 0, 0);
+        calendar.set(2020, 2, 10, 0, 0, 0);
         Date appoinmentDateTwo = calendar.getTime();
         appoinmentTwo.setAppoinmentID(2L);
         appoinmentTwo.setDoctor(doctorMap.get(2L));

@@ -107,25 +107,25 @@ public void displayListOfVisitPatiendId(Map<Long, VisitingInformation> visitingI
     }
     public void displayDetailsDateRange(Map<Long, VisitingInformation> visitInformationMap) throws ParseException {
         VisitingInformation visitRange;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        System.out.println("Display the visit details for given date range:");
         for(Long visitId : visitInformationMap.keySet()) {
             visitRange = visitInformationMap.get(visitId);
             Date dates = visitRange.getAppoinment().getDateOfVisit();
-            Date date = new SimpleDateFormat("yyyy/MM/dd").parse(simpleDateFormat.format(dates));
 
+           // Date date = new SimpleDateFormat("yyyy/MM/dd").parse(simpleDateFormat.format(dates));
             // System.out.println(dates);
             try {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 Date startDate = new SimpleDateFormat("yyyy/MM/dd").parse("2020/1/10");
-                Date endDate = new SimpleDateFormat("yyyy/MM/dd").parse("2020/3/20");
+                Date endDate = new SimpleDateFormat("yyyy/MM/dd").parse("2020/5/10");
                 if(dates.after(startDate) && (dates.before(endDate)))
                 {
-                    System.out.println("Display the visit details for given date range: " + visitRange);
-                    break;
+                    System.out.println(visitRange);
+
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-
         }
     }
 }
