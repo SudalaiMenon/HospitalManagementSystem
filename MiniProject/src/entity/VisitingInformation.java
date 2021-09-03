@@ -10,6 +10,7 @@ public class VisitingInformation {
     private List<Medicine> medicinesList;
     private Boolean followUpNeed;
 
+
     public long getVisitId() {
         return visitId;
     }
@@ -51,7 +52,6 @@ public class VisitingInformation {
     public void setMedicinesList(List<Medicine> medicinesList) {
         this.medicinesList = medicinesList;
     }
-
     @Override
     public String toString() {
         return "VisitingInformation{" +
@@ -62,4 +62,5 @@ public class VisitingInformation {
                 ", followUpNeed=" + followUpNeed +
                 '}';
     }
+
 }

@@ -49,14 +49,5 @@ public class Medicine {
         this.medicinePurpose = medicinePurpose;
     }
 
-    @Override
-    public String toString() {
-        return "Medicine{" +
-                "medicineId=" + medicineId +
-                ", medicineName='" + medicineName + '\'' +
-                ", expiryDate=" + expiryDate +
-                ", batchNumber='" + batchNumber + '\'' +
-                ", medicinePurpose='" + medicinePurpose + '\'' +
-                '}';
-    }
+
 }

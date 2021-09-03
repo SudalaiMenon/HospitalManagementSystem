@@ -44,7 +44,7 @@ public class Ip {
     public String toString() {
         return "Ip{" +
                 "patientId=" + patientId +
-                ", IpIdentificationNumber='" + IpIdentificationNumber + '\'' +
+                ", IpIdentificationNumber=" + IpIdentificationNumber +
                 ", patient=" + patient +
                 ", bed=" + bed +
                 '}';

@@ -1,20 +1,16 @@
-package displayfollowingreport;
+package bussinessobject;
 
-import entity.Appoinment;
-import entity.Ip;
-import entity.Patient;
-import entity.VisitingInformation;
+import datacollector.AppoinmentData;
+import datacollector.MedicineData;
+import entity.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
-public class DisplayReport {
+public class ReportBO {
 
-    public void displayPatientDetails(Map<Long, Patient> patientDetails, Long patientId, String patientName)  {
+    public void displayPatientDetails(Map<Long, Patient> patientDetails, Long patientId, String patientName) {
         Patient patient = new Patient();
         if (patientDetails.containsKey((patientId))) {
             patient = patientDetails.get(patientId);
@@ -25,66 +21,68 @@ public class DisplayReport {
         while (iterator.hasNext()) {
             patient.getPatientName().equals(iterator.next());
             if (patient.getPatientName().equals(patientName)) {
-                System.out.println("Display the patient details report :" +patient);
+                System.out.println("Display the patient details for the patient Name/Id:" + patient);
                 break;
             }
-
         }
-
     }
 
-public void displayListOfVisitPatiendId(Map<Long, VisitingInformation> visitingInformationMap, Long patientId) {
+    public void displayListOfVisitPatiendId(Map<Long, VisitingInformation> visitingInformationMap, Long patientId) {
         VisitingInformation visitingInformation = new VisitingInformation();
         Iterator<Long> iterator = visitingInformationMap.keySet().iterator();
+        System.out.println("Display the list of visit for the patient id:");
         while(iterator.hasNext()) {
             visitingInformation = visitingInformationMap.get(iterator.next());
-            if(visitingInformation.getAppoinment().getPatient().getPatientID() == patientId);
-            System.out.println("Display the list of visit for the patient id: "+visitingInformation);
-            break;
+            System.out.println(visitingInformation);
         }
     }
 
     public void displayFollowUpVisit(Map<Long, VisitingInformation> visitingInformationMap) {
         Iterator<Long> iterator = visitingInformationMap.keySet().iterator();
+        System.out.println("Display the list of patient who needs the followup visit:");
         while(iterator.hasNext()) {
             VisitingInformation whoNeedFollowUp = visitingInformationMap.get(iterator.next());
-            if(whoNeedFollowUp.getFollowUpNeed() == true) {
-                System.out.println("Display the list of patient who needs the followup visit:" + whoNeedFollowUp.getAppoinment().getPatient());
-                break;
+            if(whoNeedFollowUp.getFollowUpNeed()) {
+                System.out.println( whoNeedFollowUp.getAppoinment().getPatient());
+
             }
         }
     }
-
     public void displayOnlyOutPatient(Map<Long, Patient> patientMap) {
-        Patient patient = new Patient();
+        Patient patient ;
         Iterator<Long> iterator = patientMap.keySet().iterator();
+        System.out.println("Display only the out-patient: ");
         while (iterator.hasNext()) {
             patient = patientMap.get(iterator.next());
             if(patient.getPatientType().equals("OP")) {
-                System.out.println("Display only the out-patient: " + patient);
-                break;
+                System.out.println(patient);
             }
         }
     }
 
     public void displayPatientByDoctorId(Map<Long, Appoinment> appoinmentMap, Long doctorId) {
+        Appoinment appoinment;
         Iterator<Long> iterator = appoinmentMap.keySet().iterator();
+        System.out.println("Display the list of patient by doctor id(1L): ");
+
         while(iterator.hasNext()) {
-            Appoinment appoinment = appoinmentMap.get(iterator.next());
-            if(appoinment.getDoctor().getDoctorID() == doctorId) {
-                System.out.println("Display the list of patient by doctor id(0001l): " +appoinment.getPatient());
-                break;
+             appoinment = appoinmentMap.get(iterator.next());
+            if( /*appoinment.getDoctor() != null &&*/ appoinment.getDoctor().getDoctorID() == doctorId) {
+                System.out.println(appoinment.getPatient());
             }
         }
     }
 
-    public void displayWhoInPatient(Map<Long, Ip> ipMap) {
-        Iterator<Long> iterator = ipMap.keySet().iterator();
-        Ip ip;
-        while(iterator.hasNext()) {
-            ip = ipMap.get(iterator.next());
-            System.out.println("Display all patient who are in-patient: " +ip.getPatient());
-            break;
+    public void displayWhoInPatient(Map<Long, Patient> patientMap) {
+        Patient patient = new Patient();
+        Iterator<Long> iterator = patientMap.keySet().iterator();
+        System.out.println("Display Who In-patient: " );
+        while (iterator.hasNext()) {
+            patient = patientMap.get(iterator.next());
+            if(patient.getPatientType().equals("IP")) {
+                System.out.println(patient);
+
+            }
         }
     }
 
@@ -96,7 +94,7 @@ public void displayListOfVisitPatiendId(Map<Long, VisitingInformation> visitingI
         for (Long appoinmentId : appoinmentMap.keySet()) {
             todayVisit = appoinmentMap.get(appoinmentId);
             Date date = todayVisit.getDateOfVisit();
-           //  System.out.println(date);
+            //  System.out.println(date);
             String dateOne = dateFormat.format(date);
             String dateTwo = dateFormatOne.format(Calendar.getInstance().getTime());
             if (dateOne.equals(dateTwo)) {
@@ -111,18 +109,21 @@ public void displayListOfVisitPatiendId(Map<Long, VisitingInformation> visitingI
         for(Long visitId : visitInformationMap.keySet()) {
             visitRange = visitInformationMap.get(visitId);
             Date dates = visitRange.getAppoinment().getDateOfVisit();
+            //System.out.println("date checking:" +visitRange);
 
-           // Date date = new SimpleDateFormat("yyyy/MM/dd").parse(simpleDateFormat.format(dates));
+            // Date date = new SimpleDateFormat("yyyy/MM/dd").parse(simpleDateFormat.format(dates));
             // System.out.println(dates);
             try {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                Date startDate = new SimpleDateFormat("yyyy/MM/dd").parse("2020/1/10");
-                Date endDate = new SimpleDateFormat("yyyy/MM/dd").parse("2020/5/10");
-                if(dates.after(startDate) && (dates.before(endDate)))
-                {
-                    System.out.println(visitRange);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+                Date startDate = new SimpleDateFormat("yyyy/MM/dd").parse("2021/8/1");
+                Date endDate = new SimpleDateFormat("yyyy/MM/dd").parse("2021/8/12");
+                System.out.println("date checking:" +visitRange);
 
-                }
+//                if(dates.after(startDate) && (dates.before(endDate)))
+//                {
+//
+//                   // System.out.println(visitRange);
+//                }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }

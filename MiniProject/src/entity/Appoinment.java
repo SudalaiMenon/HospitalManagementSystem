@@ -100,6 +100,4 @@ public class Appoinment {
                 ", doctorToVisit='" + doctorToVisit + '\'' +
                 '}';
     }
-
-
 }

@@ -1,4 +1,4 @@
-package bussinessobject;
+package generatedata;
 
 import entity.*;
 import untility.Utility;
@@ -8,24 +8,31 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class VisitingInformationBO {
+import static datacollector.IpData.inPatient;
+
+public class VisitingInformationGenerator {
+
     public Patient createVisitLogInformation(Long appointmentId, Map<Long, Appoinment> appointmentMap,
                                              Map<Long, VisitingInformation> visitDetails,
                                              List<Medicine> medicines, String doctorRecommendation,
-                                             Boolean followUpNeed)  {
+                                             Boolean followUpNeed) {
 
 
         Appoinment appointment = new Appoinment();
         if (appointmentMap.containsKey(appointmentId)) {
             appointment = appointmentMap.get(appointmentId);
-          //  System.out.println(appointment.getPatient());
+            //  System.out.println(appointment.getPatient());
 
         }
 
         Patient patient = appointment.getPatient();
 
         VisitingInformation visitingInformation = new VisitingInformation();
-        visitingInformation.setVisitId(Utility.getVisitId(new ArrayList<>(visitDetails.keySet())));
+
+        long setVisitId = visitDetails.keySet().size();
+        setVisitId = setVisitId+1;
+        visitingInformation.setVisitId(setVisitId);
+       // visitingInformation.setVisitId(Utility.getVisitId(new ArrayList<>(visitDetails.keySet())));
         visitingInformation.setDoctorRecommendation(doctorRecommendation);
         visitingInformation.setFollowUpNeed(followUpNeed);
         visitingInformation.setMedicinesList(medicines);
@@ -36,6 +43,7 @@ public class VisitingInformationBO {
         Boolean status = checkPatientType(visitDetails, patient);
         visitDetails.put(visitingInformation.getVisitId(), visitingInformation);
         return patient;
+
     }
 
     private Boolean checkPatientType(Map<Long, VisitingInformation> visitDetails, Patient patient) {
@@ -45,7 +53,7 @@ public class VisitingInformationBO {
         int visitCount = 0;
         while (itr.hasNext()) {
             visitLog = visitDetails.get(itr.next());
-            if (visitLog.getAppoinment().getPatient().getPatientID() == patient.getPatientID()) {
+            if (visitLog.getAppoinment().getPatient().getPatientID().equals(patient.getPatientID())) {
                 visitCount++;
             }
         }
@@ -54,7 +62,6 @@ public class VisitingInformationBO {
 
         if (visitCount >= 3) {
             patient.setPatientType("IP");
-            return true;
         }
         return false;
     }

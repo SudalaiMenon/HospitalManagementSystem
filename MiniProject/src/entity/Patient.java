@@ -6,10 +6,19 @@ public class Patient {
       private String patientName;
       private Long patientID;
       private Date patientDOB;
+      private String hospitalName;
       private String phoneNumber;
       private String address;
       private String patientType;
 
+
+      public String getHospitalName() {
+            return hospitalName;
+      }
+
+      public void setHospitalName(String hospitalName) {
+            this.hospitalName = hospitalName;
+      }
       public String getPatientName() {
             return patientName;
       }
@@ -64,9 +73,10 @@ public class Patient {
                     "patientName='" + patientName + '\'' +
                     ", patientID=" + patientID +
                     ", patientDOB=" + patientDOB +
+                    ", hospitalName='" + hospitalName + '\'' +
                     ", phoneNumber='" + phoneNumber + '\'' +
                     ", address='" + address + '\'' +
-                    ", typeIpOp='" + patientType + '\'' +
+                    ", patientType='" + patientType + '\'' +
                     '}';
       }
 }

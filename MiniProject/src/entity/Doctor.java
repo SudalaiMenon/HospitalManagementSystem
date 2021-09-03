@@ -4,6 +4,17 @@ public class Doctor {
     private long doctorID;
     private String doctorName;
     private String specialisation;
+    private String hospitalName;
+
+    public String getHospitalName() {
+        return hospitalName;
+    }
+
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
+    }
+
+
 
     public long getDoctorID() {
         return doctorID;
@@ -35,6 +46,7 @@ public class Doctor {
                 "doctorID=" + doctorID +
                 ", doctorName='" + doctorName + '\'' +
                 ", specialisation='" + specialisation + '\'' +
+                ", hospitalName='" + hospitalName + '\'' +
                 '}';
     }
 }
