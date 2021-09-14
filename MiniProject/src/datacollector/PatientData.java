@@ -3,6 +3,7 @@ package datacollector;
 import entity.Patient;
 import untility.DateUtility;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +18,11 @@ public class PatientData {
         patient.setPatientName("Ramana");
         patient.setHospitalName("Appollo Hospital");
         patient.setPatientID(1L);
-        patient.setPatientDOB(DateUtility.convertDate(1991,1,1));
+        try {
+            patient.setPatientDOB(DateUtility.convertStringToDateEx("2021/08/01"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         patient.setPhoneNumber("9995013779");
         patient.setPatientType("OP");
         patientMap.put(patient.getPatientID(), patient);
@@ -76,6 +81,8 @@ public class PatientData {
         patient.setPhoneNumber("8995013779");
         patient.setPatientType("OP");
         patientMap.put(patient.getPatientID(), patient);
+        System.out.println();
+
 
     }
 }
